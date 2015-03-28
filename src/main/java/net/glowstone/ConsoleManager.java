@@ -41,7 +41,7 @@ public final class ConsoleManager {
     private ConsoleCommandSender sender;
 
     private boolean running = true;
-    private boolean jLine = false;
+    private boolean jLine = false; 
 
     public ConsoleManager(GlowServer server) {
         this.server = server;
