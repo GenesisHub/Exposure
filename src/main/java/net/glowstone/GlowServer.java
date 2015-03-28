@@ -110,7 +110,7 @@ public final class GlowServer implements Server {
             logger.info("Ready for connections.");
         } catch (BindException ex) {
             // descriptive bind error messages
-            logger.severe("The server could not bind to the requested address.");
+            logger.severe("Exposure could not bind to the requested address.");
             if (ex.getMessage().startsWith("Cannot assign requested address")) {
                 logger.severe("The 'server.ip' in your configuration may not be valid.");
                 logger.severe("Unless you are sure you need it, try removing it.");
@@ -428,7 +428,10 @@ public final class GlowServer implements Server {
                 logger.info("Proxy support is enabled.");
             }
         } else if (!getOnlineMode()) {
-            logger.warning("The server is running in offline mode! Only do this if you know what you're doing.");
+            logger.warning("Exposure is running in offline mode!");
+            logger.warning("This means Exposure will not try to authenticate with Mojang Servers!");
+            logger.warning("Offline Mode is typically used for BunngeCord or Cracked Servers, or if the server is run on a LAN without a internet connection.");
+            logger.warning("If you dont need Offline Mode, or you turned it on by aciedent, please shut off the server and turn Online Mode to true.");
         }
 
         // Load player lists
@@ -604,7 +607,7 @@ public final class GlowServer implements Server {
             return;
         }
         isShuttingDown = true;
-        logger.info("The server is shutting down...");
+        logger.info("Exposure is shutting down...");
 
         // Disable plugins
         pluginManager.clearPlugins();
@@ -666,7 +669,7 @@ public final class GlowServer implements Server {
                 defaultIcon = new GlowServerIcon(file);
             }
         } catch (Exception e) {
-            logger.log(Level.WARNING, "Failed to load server-icon.png", e);
+            logger.log(Level.WARNING, "Exposure failed to load server-icon.png", e);
         }
     }
 
@@ -681,7 +684,7 @@ public final class GlowServer implements Server {
 
         File folder = new File(config.getString(ServerConfig.Key.PLUGIN_FOLDER));
         if (!folder.isDirectory() && !folder.mkdirs()) {
-            logger.log(Level.SEVERE, "Could not create plugins directory: " + folder);
+            logger.log(Level.SEVERE, "Exposure could not create plugins directory: " + folder);
         }
 
         // clear plugins and prepare to load
@@ -771,7 +774,7 @@ public final class GlowServer implements Server {
             enablePlugins(PluginLoadOrder.STARTUP);
             enablePlugins(PluginLoadOrder.POSTWORLD);
         } catch (Exception ex) {
-            logger.log(Level.SEVERE, "Uncaught error while reloading", ex);
+            logger.log(Level.SEVERE, "Exposure had a uncaught error while reloading", ex);
         }
     }
 
