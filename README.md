@@ -4,4 +4,4 @@ Based on Glowstone
 ## Staff
 - Seshpenguin || Project Founder
 - aguy867/InDev || Lead Developer
-- jgigamer || That one guy
+- jgigamer || Marketing Guy
