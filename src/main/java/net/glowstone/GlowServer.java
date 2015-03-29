@@ -1,3 +1,10 @@
+/*
+ * Exposure Minecraft Server
+ * By the GenesisHub Dev Team
+ * Based from Glowstone
+ * Implements Bukkit API
+ */
+
 package net.glowstone;
 
 import com.avaje.ebean.config.DataSourceConfig;
